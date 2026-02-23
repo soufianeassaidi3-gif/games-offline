@@ -1,10 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-<title>My Games Site</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gaming Store Pro</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f0f1a;
+color:white;
+}
+
+header{
+background:linear-gradient(90deg,#6a00ff,#00c3ff);
+padding:20px;
+text-align:center;
+font-size:28px;
+font-weight:bold;
+}
+
+.container{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1c1c2e;
+border-radius:15px;
+padding:15px;
+text-align:center;
+transition:0.3s;
+box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+.card:hover{
+transform:scale(1.05);
+}
+
+.card img{
+width:100%;
+border-radius:10px;
+}
+
+.button{
+display:inline-block;
+margin-top:10px;
+padding:10px 20px;
+background:#00c3ff;
+color:black;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#111;
+margin-top:20px;
+}
+</style>
 </head>
+
 <body>
-<h1>مرحبا بك في موقعي 🎮</h1>
-<p>هذا أول موقع لي على GitHub Pages</p>
+
+<header>
+🎮 Gaming Store Pro
+</header>
+
+<div class="container">
+
+<div class="card">
+<img src="https://via.placeholder.com/300x170">
+<h3>FIFA 16</h3>
+<p>لعبة كرة قدم بدون انترنت</p>
+<a href="#" class="button">تحميل</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x170">
+<h3>Truck Simulator</h3>
+<p>محاكي شاحنات بحجم صغير</p>
+<a href="#" class="button">تحميل</a>
+</div>
+
+<div class="card">
+<img src="https://via.placeholder.com/300x170">
+<h3>GTA Lite</h3>
+<p>نسخة خفيفة تعمل على الهواتف الضعيفة</p>
+<a href="#" class="button">تحميل</a>
+</div>
+
+</div>
+
+<footer>
+© 2026 جميع الحقوق محفوظة
+</footer>
+
 </body>
 </html>
