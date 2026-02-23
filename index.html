@@ -11,6 +11,7 @@ margin:0;
 font-family:Arial;
 background:#0f0f1a;
 color:white;
+scroll-behavior:smooth;
 }
 
 header{
@@ -19,6 +20,19 @@ padding:15px;
 text-align:center;
 font-size:24px;
 font-weight:bold;
+}
+
+nav{
+background:#111;
+text-align:center;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-size:14px;
 }
 
 .search-box{
@@ -36,7 +50,7 @@ font-size:16px;
 }
 
 .section{
-padding:15px;
+padding:20px;
 }
 
 .section h2{
@@ -46,18 +60,17 @@ padding-right:10px;
 
 .games{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-gap:10px;
-margin-top:10px;
+grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+gap:15px;
+margin-top:15px;
 }
 
 .game{
 background:#1c1c2e;
-padding:8px;
-border-radius:10px;
+padding:10px;
+border-radius:12px;
 text-align:center;
 transition:0.3s;
-font-size:14px;
 }
 
 .game:hover{
@@ -72,21 +85,40 @@ border-radius:8px;
 
 .button{
 display:block;
-margin-top:5px;
-padding:5px;
+margin-top:8px;
+padding:6px;
 background:#00c3ff;
 color:black;
 border-radius:6px;
 text-decoration:none;
 font-weight:bold;
-font-size:13px;
+cursor:pointer;
+}
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:#1c1c2e;
+padding:20px;
+border-radius:12px;
+text-align:center;
 }
 
 footer{
 text-align:center;
 padding:15px;
 background:#111;
-margin-top:20px;
+margin-top:30px;
 font-size:14px;
 }
 </style>
@@ -94,85 +126,118 @@ font-size:14px;
 
 <body>
 
-<header>
-🎮 Gaming Store Pro
-</header>
+<header>🎮 Gaming Store Pro</header>
+
+<nav>
+<a href="#psp">PSP</a>
+<a href="#football">كرة قدم</a>
+<a href="#truck">شاحنات</a>
+<a href="#war">قتال</a>
+</nav>
 
 <div class="search-box">
-<input type="text" placeholder="ابحث عن لعبة...">
+<input type="text" id="search" onkeyup="searchGames()" placeholder="ابحث عن لعبة...">
 </div>
 
-<!-- قسم PSP -->
-<div class="section">
+<!-- PSP -->
+<div class="section" id="psp">
 <h2>🎮 ألعاب PSP</h2>
 <div class="games">
 
 <div class="game">
-<img src="https://via.placeholder.com/150x100">
-FIFA 14 PSP
-<a href="#" class="button">تحميل</a>
-</div>
-
-<div class="game">
-<img src="https://via.placeholder.com/150x100">
-GTA PSP
-<a href="#" class="button">تحميل</a>
+<img src="https://via.placeholder.com/200x120">
+<p>GTA PSP</p>
+<div class="button" onclick="openModal('GTA PSP')">تحميل</div>
 </div>
 
 </div>
 </div>
 
-<!-- قسم كرة القدم -->
-<div class="section">
+<!-- Football -->
+<div class="section" id="football">
 <h2>⚽ ألعاب كرة القدم</h2>
 <div class="games">
 
 <div class="game">
-<img src="https://via.placeholder.com/150x100">
-FIFA 16
-<a href="#" class="button">تحميل</a>
-</div>
-
-<div class="game">
-<img src="https://via.placeholder.com/150x100">
-PES 2017
-<a href="#" class="button">تحميل</a>
+<img src="https://via.placeholder.com/200x120">
+<p>FIFA 16</p>
+<div class="button" onclick="openModal('FIFA 16')">تحميل</div>
 </div>
 
 </div>
 </div>
 
-<!-- قسم الشاحنات -->
-<div class="section">
+<!-- Truck -->
+<div class="section" id="truck">
 <h2>🚛 ألعاب الشاحنات</h2>
 <div class="games">
 
 <div class="game">
-<img src="https://via.placeholder.com/150x100">
-Truck Simulator
-<a href="#" class="button">تحميل</a>
+<img src="https://via.placeholder.com/200x120">
+<p>Truck Simulator</p>
+<div class="button" onclick="openModal('Truck Simulator')">تحميل</div>
 </div>
 
 </div>
 </div>
 
-<!-- قسم القتال -->
-<div class="section">
-<h2>🔫 ألعاب القتال بالأسلحة</h2>
+<!-- War -->
+<div class="section" id="war">
+<h2>🔫 ألعاب القتال</h2>
 <div class="games">
 
 <div class="game">
-<img src="https://via.placeholder.com/150x100">
-Call of Duty
-<a href="#" class="button">تحميل</a>
+<img src="https://via.placeholder.com/200x120">
+<p>Call of Duty</p>
+<div class="button" onclick="openModal('Call of Duty')">تحميل</div>
 </div>
 
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="downloadModal">
+<div class="modal-content">
+<h3 id="gameTitle"></h3>
+<p id="countdown">جاري التحضير...</p>
+<button class="button" onclick="closeModal()">إغلاق</button>
 </div>
 </div>
 
 <footer>
-© 2026 Gaming Store Pro
+© 2026 Gaming Store Pro - جميع الحقوق محفوظة
 </footer>
+
+<script>
+function searchGames(){
+let input=document.getElementById("search").value.toLowerCase();
+let games=document.getElementsByClassName("game");
+for(let i=0;i<games.length;i++){
+let title=games[i].innerText.toLowerCase();
+games[i].style.display=title.includes(input)?"block":"none";
+}
+}
+
+function openModal(name){
+document.getElementById("downloadModal").style.display="flex";
+document.getElementById("gameTitle").innerText="تحميل "+name;
+let time=3;
+let countdown=document.getElementById("countdown");
+countdown.innerText="سيبدأ التحميل خلال "+time+" ثواني";
+let interval=setInterval(function(){
+time--;
+countdown.innerText="سيبدأ التحميل خلال "+time+" ثواني";
+if(time<=0){
+clearInterval(interval);
+countdown.innerHTML='<a href="#" style="color:#00c3ff;">اضغط هنا للتحميل</a>';
+}
+},1000);
+}
+
+function closeModal(){
+document.getElementById("downloadModal").style.display="none";
+}
+</script>
 
 </body>
 </html>
