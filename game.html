@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIFA 16</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:#0f0f1a;
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+img{
+width:100%;
+max-height:400px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.box{
+background:#1c1c2e;
+padding:20px;
+border-radius:15px;
+margin-top:20px;
+}
+
+.download-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+background:linear-gradient(90deg,#00c3ff,#6a00ff);
+color:white;
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+}
+
+.back{
+display:inline-block;
+margin-top:15px;
+color:#00c3ff;
+text-decoration:none;
+}
+
+.ad-box{
+background:#111;
+padding:15px;
+margin-top:20px;
+text-align:center;
+border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<a href="index.html" class="back">⬅ الرجوع للرئيسية</a>
+
+<h1>FIFA 16</h1>
+
+<img src="https://via.placeholder.com/800x400">
+
+<div class="box">
+
+<p>
+لعبة كرة قدم رائعة تعمل بدون انترنت بجرافيك عالي وتحديث انتقالات اللاعبين.
+</p>
+
+<p><b>الحجم:</b> 800MB</p>
+<p><b>الإصدار:</b> 1.0</p>
+<p><b>النوع:</b> كرة قدم</p>
+
+<div class="ad-box">
+مكان إعلانك هنا
+</div>
+
+<a id="downloadBtn" class="download-btn"></a>
+
+</div>
+
+<h3 style="margin-top:40px;">🔥 ألعاب مقترحة</h3>
+<ul>
+<li>GTA PSP</li>
+<li>Truck Simulator</li>
+<li>Call of Duty</li>
+</ul>
+
+</div>
+
+<script>
+let btn = document.getElementById("downloadBtn");
+let time = 5;
+btn.innerText = "التحميل خلال " + time + " ثواني";
+
+let interval = setInterval(function(){
+time--;
+btn.innerText = "التحميل خلال " + time + " ثواني";
+
+if(time <= 0){
+clearInterval(interval);
+btn.innerText = "تحميل الآن";
+btn.href = "https://shrinkme.io/abc123"; // ضع رابط التحميل هنا
+btn.target = "_blank";
+}
+},1000);
+</script>
+
+</body>
+</html>
