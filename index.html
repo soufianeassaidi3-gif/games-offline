@@ -15,53 +15,79 @@ color:white;
 
 header{
 background:linear-gradient(90deg,#6a00ff,#00c3ff);
-padding:20px;
+padding:15px;
 text-align:center;
-font-size:28px;
+font-size:24px;
 font-weight:bold;
 }
 
-.container{
-padding:20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.search-box{
+text-align:center;
+margin:15px;
 }
 
-.card{
-background:#1c1c2e;
-border-radius:15px;
+.search-box input{
+width:80%;
+padding:10px;
+border-radius:8px;
+border:none;
+outline:none;
+font-size:16px;
+}
+
+.section{
 padding:15px;
+}
+
+.section h2{
+border-right:5px solid #00c3ff;
+padding-right:10px;
+}
+
+.games{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+gap:10px;
+margin-top:10px;
+}
+
+.game{
+background:#1c1c2e;
+padding:8px;
+border-radius:10px;
 text-align:center;
 transition:0.3s;
-box-shadow:0 0 15px rgba(0,0,0,0.5);
+font-size:14px;
 }
 
-.card:hover{
+.game:hover{
 transform:scale(1.05);
+background:#24243a;
 }
 
-.card img{
+.game img{
 width:100%;
-border-radius:10px;
+border-radius:8px;
 }
 
 .button{
-display:inline-block;
-margin-top:10px;
-padding:10px 20px;
+display:block;
+margin-top:5px;
+padding:5px;
 background:#00c3ff;
 color:black;
-border-radius:8px;
+border-radius:6px;
 text-decoration:none;
 font-weight:bold;
+font-size:13px;
 }
 
 footer{
 text-align:center;
-padding:20px;
+padding:15px;
 background:#111;
 margin-top:20px;
+font-size:14px;
 }
 </style>
 </head>
@@ -72,33 +98,80 @@ margin-top:20px;
 🎮 Gaming Store Pro
 </header>
 
-<div class="container">
+<div class="search-box">
+<input type="text" placeholder="ابحث عن لعبة...">
+</div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x170">
-<h3>FIFA 16</h3>
-<p>لعبة كرة قدم بدون انترنت</p>
+<!-- قسم PSP -->
+<div class="section">
+<h2>🎮 ألعاب PSP</h2>
+<div class="games">
+
+<div class="game">
+<img src="https://via.placeholder.com/150x100">
+FIFA 14 PSP
 <a href="#" class="button">تحميل</a>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x170">
-<h3>Truck Simulator</h3>
-<p>محاكي شاحنات بحجم صغير</p>
+<div class="game">
+<img src="https://via.placeholder.com/150x100">
+GTA PSP
 <a href="#" class="button">تحميل</a>
 </div>
 
-<div class="card">
-<img src="https://via.placeholder.com/300x170">
-<h3>GTA Lite</h3>
-<p>نسخة خفيفة تعمل على الهواتف الضعيفة</p>
+</div>
+</div>
+
+<!-- قسم كرة القدم -->
+<div class="section">
+<h2>⚽ ألعاب كرة القدم</h2>
+<div class="games">
+
+<div class="game">
+<img src="https://via.placeholder.com/150x100">
+FIFA 16
 <a href="#" class="button">تحميل</a>
 </div>
 
+<div class="game">
+<img src="https://via.placeholder.com/150x100">
+PES 2017
+<a href="#" class="button">تحميل</a>
+</div>
+
+</div>
+</div>
+
+<!-- قسم الشاحنات -->
+<div class="section">
+<h2>🚛 ألعاب الشاحنات</h2>
+<div class="games">
+
+<div class="game">
+<img src="https://via.placeholder.com/150x100">
+Truck Simulator
+<a href="#" class="button">تحميل</a>
+</div>
+
+</div>
+</div>
+
+<!-- قسم القتال -->
+<div class="section">
+<h2>🔫 ألعاب القتال بالأسلحة</h2>
+<div class="games">
+
+<div class="game">
+<img src="https://via.placeholder.com/150x100">
+Call of Duty
+<a href="#" class="button">تحميل</a>
+</div>
+
+</div>
 </div>
 
 <footer>
-© 2026 جميع الحقوق محفوظة
+© 2026 Gaming Store Pro
 </footer>
 
 </body>
