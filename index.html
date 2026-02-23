@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gaming Store Pro</title>
+<title>تفاصيل اللعبة</title>
 
 <style>
 body{
@@ -11,114 +11,79 @@ margin:0;
 font-family:Arial;
 background:#0f0f1a;
 color:white;
-scroll-behavior:smooth;
 }
 
-header{
-background:linear-gradient(90deg,#6a00ff,#00c3ff);
-padding:15px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
-}
-
-nav{
-background:#111;
-text-align:center;
-padding:10px;
-}
-
-nav a{
-color:white;
-margin:10px;
-text-decoration:none;
-font-size:14px;
-}
-
-.search-box{
-text-align:center;
-margin:15px;
-}
-
-.search-box input{
-width:80%;
-padding:10px;
-border-radius:8px;
-border:none;
-outline:none;
-font-size:16px;
-}
-
-.section{
+.container{
 padding:20px;
+max-width:900px;
+margin:auto;
 }
 
-.section h2{
-border-right:5px solid #00c3ff;
+.game-img{
+width:100%;
+max-height:400px;
+object-fit:cover;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,195,255,0.4);
+}
+
+.info-box{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+background:#1c1c2e;
+padding:15px;
+border-radius:12px;
+margin-top:15px;
+}
+
+.info-box div{
+margin:5px 10px;
+}
+
+.rating{
+color:gold;
+font-size:20px;
+margin-top:10px;
+}
+
+.download-btn{
+display:inline-block;
+margin-top:20px;
+padding:14px 30px;
+background:linear-gradient(90deg,#00c3ff,#6a00ff);
+color:white;
+font-weight:bold;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+}
+
+.download-btn:hover{
+opacity:0.8;
+}
+
+.suggested{
+margin-top:40px;
+}
+
+.suggested h3{
+border-right:4px solid #00c3ff;
 padding-right:10px;
 }
 
-.games{
+.suggested-games{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
 gap:15px;
 margin-top:15px;
 }
 
-.game{
+.suggested-games div{
 background:#1c1c2e;
 padding:10px;
-border-radius:12px;
+border-radius:10px;
 text-align:center;
-transition:0.3s;
-}
-
-.game:hover{
-transform:scale(1.05);
-background:#24243a;
-}
-
-.game img{
-width:100%;
-border-radius:8px;
-}
-
-.button{
-display:block;
-margin-top:8px;
-padding:6px;
-background:#00c3ff;
-color:black;
-border-radius:6px;
-text-decoration:none;
-font-weight:bold;
-cursor:pointer;
-}
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-}
-
-.modal-content{
-background:#1c1c2e;
-padding:20px;
-border-radius:12px;
-text-align:center;
-}
-
-footer{
-text-align:center;
-padding:15px;
-background:#111;
-margin-top:30px;
 font-size:14px;
 }
 </style>
@@ -126,117 +91,65 @@ font-size:14px;
 
 <body>
 
-<header>🎮 Gaming Store Pro</header>
+<div class="container">
 
-<nav>
-<a href="#psp">PSP</a>
-<a href="#football">كرة قدم</a>
-<a href="#truck">شاحنات</a>
-<a href="#war">قتال</a>
-</nav>
+<h1 id="title"></h1>
 
-<div class="search-box">
-<input type="text" id="search" onkeyup="searchGames()" placeholder="ابحث عن لعبة...">
+<img id="image" class="game-img">
+
+<div class="rating">★★★★★</div>
+
+<div class="info-box">
+<div><b>الحجم:</b> <span id="size"></span></div>
+<div><b>الإصدار:</b> <span id="version"></span></div>
+<div><b>النوع:</b> <span id="category"></span></div>
 </div>
 
-<!-- PSP -->
-<div class="section" id="psp">
-<h2>🎮 ألعاب PSP</h2>
-<div class="games">
+<p id="description" style="margin-top:15px;"></p>
 
-<div class="game">
-<img src="https://via.placeholder.com/200x120">
-<p>GTA PSP</p>
-<div class="button" onclick="openModal('GTA PSP')">تحميل</div>
-</div>
+<a id="downloadLink" class="download-btn">
+تحميل الآن
+</a>
 
-</div>
-</div>
-
-<!-- Football -->
-<div class="section" id="football">
-<h2>⚽ ألعاب كرة القدم</h2>
-<div class="games">
-
-<div class="game">
-<img src="https://via.placeholder.com/200x120">
-<p>FIFA 16</p>
-<div class="button" onclick="openModal('FIFA 16')">تحميل</div>
-</div>
-
+<div class="suggested">
+<h3>🔥 ألعاب مقترحة</h3>
+<div class="suggested-games">
+<div>FIFA 16</div>
+<div>GTA PSP</div>
+<div>Truck Simulator</div>
+<div>Call of Duty</div>
 </div>
 </div>
 
-<!-- Truck -->
-<div class="section" id="truck">
-<h2>🚛 ألعاب الشاحنات</h2>
-<div class="games">
-
-<div class="game">
-<img src="https://via.placeholder.com/200x120">
-<p>Truck Simulator</p>
-<div class="button" onclick="openModal('Truck Simulator')">تحميل</div>
 </div>
-
-</div>
-</div>
-
-<!-- War -->
-<div class="section" id="war">
-<h2>🔫 ألعاب القتال</h2>
-<div class="games">
-
-<div class="game">
-<img src="https://via.placeholder.com/200x120">
-<p>Call of Duty</p>
-<div class="button" onclick="openModal('Call of Duty')">تحميل</div>
-</div>
-
-</div>
-</div>
-
-<!-- Modal -->
-<div class="modal" id="downloadModal">
-<div class="modal-content">
-<h3 id="gameTitle"></h3>
-<p id="countdown">جاري التحضير...</p>
-<button class="button" onclick="closeModal()">إغلاق</button>
-</div>
-</div>
-
-<footer>
-© 2026 Gaming Store Pro - جميع الحقوق محفوظة
-</footer>
 
 <script>
-function searchGames(){
-let input=document.getElementById("search").value.toLowerCase();
-let games=document.getElementsByClassName("game");
-for(let i=0;i<games.length;i++){
-let title=games[i].innerText.toLowerCase();
-games[i].style.display=title.includes(input)?"block":"none";
-}
-}
+const params = new URLSearchParams(window.location.search);
 
-function openModal(name){
-document.getElementById("downloadModal").style.display="flex";
-document.getElementById("gameTitle").innerText="تحميل "+name;
-let time=3;
-let countdown=document.getElementById("countdown");
-countdown.innerText="سيبدأ التحميل خلال "+time+" ثواني";
-let interval=setInterval(function(){
+document.getElementById("title").innerText = params.get("name");
+document.getElementById("image").src = params.get("img");
+document.getElementById("description").innerText = params.get("desc");
+document.getElementById("size").innerText = params.get("size");
+document.getElementById("version").innerText = params.get("ver");
+document.getElementById("category").innerText = params.get("cat");
+
+let link = params.get("link");
+let btn = document.getElementById("downloadLink");
+
+let time = 5;
+btn.innerText = "التحميل خلال " + time + " ثواني";
+
+let interval = setInterval(function(){
 time--;
-countdown.innerText="سيبدأ التحميل خلال "+time+" ثواني";
-if(time<=0){
+btn.innerText = "التحميل خلال " + time + " ثواني";
+
+if(time <= 0){
 clearInterval(interval);
-countdown.innerHTML='<a href="#" style="color:#00c3ff;">اضغط هنا للتحميل</a>';
+btn.innerText = "تحميل الآن";
+btn.href = link;
+btn.target = "_blank";
 }
 },1000);
-}
-
-function closeModal(){
-document.getElementById("downloadModal").style.display="none";
-}
 </script>
 
 </body>
